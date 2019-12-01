@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body class="text-center">
+    <form class="form-addhospital" action="#" method="post">{% csrf_token %}
+        <h1 class="h3 mb-3 font-weight-normal">Add New Patient</h1>
+        <div class="hid">
+            <label for="inputpid" style="display: none;">Patient ID</label>
+            <input type="text" name="inputpid"  maxlength="9"  minlength="9" id="inputpid" class="form-control" placeholder="Patient ID" required autofocus >
+        </div>
+        <div class="pfn">
+            <label for="inputpfn" class="sr-only">Patient Family Name</label>
+            <input type="text" name="inputpfn" id="inputpfn" class="form-control" placeholder="Patient Family Name" required maxlength="30">
+        </div>
+        <div class="pln">
+            <label for="inputpln" class="sr-only">Patient Last Name</label>
+            <input type="text" name="inputpln" id="inputpln" class="form-control" placeholder="Patient Last Name" required maxlength="20">
+        </div>
+        <div class="gender">
+            <label for="inputpgender" class="sr-only">Gender</label>
+            <input type="text" name="inputpgender" id="inputpgender" class="form-control" placeholder="Patient Gender (F/M)" required maxlength="1" minlength="1">
+        </div>
+        <div class="birthday">
+            <label for="inputpbd" class="sr-only" style="display: contents;">Patient's Birthday</label>
+            <input type="date" name="inputpbd" id="inputpbd" class="form-control">
+        </div>
+        <div class="race">
+            <label for="inputprace" class="sr-only">Patient Race</label>
+            <input type="text" name="inputprace" id="inputprace" class="form-control" placeholder="Patient Race" maxlength="20">
+        </div>
+        <div class="status">
+                <label for="inputpstatus" class="sr-only">Patient Status</label>
+                <input type="text" name="inputpstatus" id="inputpstatus" class="form-control" required placeholder="Patient Status (M/W/S)" maxlength="1" minlength="1">
+            </div>
+        <br/>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="signin" id="signin">Submit</button>
+            <div class="line">
+                <p style="color:red;">{{msg}}</p>
+            </div>
+</form>
+</body>
+{% endblock %}
